@@ -22,5 +22,11 @@ public class FinalPracticeTest {
         assertEquals(0, FinalPractice.oddIndexSum(list));
     }
 
+    @Test
+    void testOddIndexSum_sameValues() {
+        ListNode list = new ListNode(3, new ListNode(3, new ListNode(3, new ListNode(3))));
+        assertEquals(6, FinalPractice.oddIndexSum(list));
+    }
+
     // TODO: Make thorough tests for ALL the questions on the study guide
 }
