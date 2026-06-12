@@ -102,7 +102,68 @@ POSSIBLE VARIATION: Largest of last 4 values
                 return 0;
             }
         }
-        
+
         return evenLeafSum(root.left) + evenLeafSum(root.right);
     }
+
+
+
+                /*
+Given a reference to the root of a tree, return the sum of the branch nodes with odd values in the tree. Do not include any even or leaf nodes.
+Example:
+Tree:
+           15
+         /    \
+        9      4
+       / \    /  \
+      8   11 21   30
+     / \        \
+    2   6        23
+
+Expected Answer: 45
+The branch nodes are 15  9  4  8  21, and the odd ones are 15  9   21
+The sum of the odd branch nodes is 15+9+21=45
+POSSIBLE VARIATION: Sum of branch nodes with even values
+
+Given a reference to a head node in a linked list of integers, return a Map<Integer, Integer> containing each value along with the number of times it shows up.
+Example:
+Linked List:
+4 -> 34 -> 4 -> 16 -> 4 -> 16 -> 29 -> 8 -> 8
+
+Expected Return Map (order is unimportant): 
+{ 
+  4: 3,
+  8: 2,
+  16: 2,
+  29: 1,
+  34: 1
+} 
+
+Explanation
+4 shows up three times
+8 shows up two times
+16 shows up two times
+29 shows up one time
+34 shows up one time
+
+                */
+
+public static int oddSum(TreeNode root) {
+    if(root == null) return 0;
+
+    boolean isLeaf = root.left == null && root.right == null;
+
+
+    if(isLeaf) return 0;
+
+    int sum = 0;
+
+    if(root.data % 2 != 0) {
+        sum += root.data;
+    }
+
+
+    return sum + oddSum(root.left) + oddSum(root.right);
+}
+    
 }
