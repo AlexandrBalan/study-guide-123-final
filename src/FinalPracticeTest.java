@@ -66,4 +66,24 @@ public class FinalPracticeTest {
     void testEvenLeafSum_singleOddLeaf() {
         assertEquals(0, FinalPractice.evenLeafSum(new TreeNode(5)));
     }
+
+
+
+    //oddSum test cases
+
+    @Test
+    void testOddSum_null() {
+        assertEquals(0, FinalPractice.oddSum(null));
+    }
+
+    @Test
+    void testOddSum_singleNode() {
+        assertEquals(0, FinalPractice.oddSum(new TreeNode(7)));
+    }
+
+    @Test
+    void TestOddSum_allEven() {
+    TreeNode tree = new TreeNode(2, new TreeNode(4), new TreeNode(1));
+    assertEquals(0, FinalPractice.oddSum(tree));
+    }
 }
