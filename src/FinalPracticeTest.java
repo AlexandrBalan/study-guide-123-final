@@ -48,4 +48,22 @@ public class FinalPracticeTest {
 
         assertEquals(99, FinalPractice.lastThree(list));
     }
+
+
+
+    //EvenLeafSum test cases
+    @Test
+    void testEvenLeafSum_null() {
+        assertEquals(0, FinalPractice.evenLeafSum(null));
+    }
+
+    @Test
+    void testEvenLeafSum_singleEvenLeaf() {
+        assertEquals(4, FinalPractice.evenLeafSum(new TreeNode(4)));
+    }
+
+    @Test
+    void testEvenLeafSum_singleOddLeaf() {
+        assertEquals(0, FinalPractice.evenLeafSum(new TreeNode(5)));
+    }
 }
