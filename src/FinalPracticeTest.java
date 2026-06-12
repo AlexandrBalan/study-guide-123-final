@@ -1,5 +1,7 @@
 import static org.junit.Assert.*;
 
+import java.util.Map;
+
 import org.junit.jupiter.api.Test;
 
 public class FinalPracticeTest {
@@ -85,5 +87,23 @@ public class FinalPracticeTest {
     void TestOddSum_allEven() {
     TreeNode tree = new TreeNode(2, new TreeNode(4), new TreeNode(1));
     assertEquals(0, FinalPractice.oddSum(tree));
+    }
+
+
+    //valuecounts test cases
+    @Test
+    void testValueCounts_null() {
+        Map<Integer, Integer> result = FinalPractice.valueCounts(null);
+        assertTrue(result.isEmpty());
+    }
+
+
+    @Test
+    void testValueCounts_allSame() {
+        ListNode list = new ListNode(3, new ListNode(3, new ListNode(3)));
+
+        Map<Integer, Integer> result = FinalPractice.valueCounts(list);
+
+        assertEquals(3, (int) result.get(3));
     }
 }
