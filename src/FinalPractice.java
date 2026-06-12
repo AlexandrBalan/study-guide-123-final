@@ -1,3 +1,5 @@
+import org.junit.Assume;
+
 public class FinalPractice {
     public static void main(String[] args) {
         // Feel free to call your methods here to experiment
@@ -35,5 +37,31 @@ public class FinalPractice {
         return sum;
     }
 
-    // TODO: implement the rest of the study guide AND MAKE GOOD UNIT TESTS
+    /* 
+Given a reference to the head of a linked list, return the largest of only the last 3 values of the list.
+Example:
+Linked List:
+7 -> 3 -> 19 -> 21 -> 14 -> 33 -> 8 -> 26 -> 11 -> 5
+Expected Answer: 26
+Last 3 values are: 26  11  5, the largest of which is 26
+POSSIBLE VARIATION: Largest of last 4 values
+*/
+
+    public static int lastThree(ListNode head) {
+        int first = 0;
+        int second = 0;
+        int third = 0;
+
+        ListNode current = head;
+
+        while(current != null) {
+            first = second;
+            second = third;
+            third = current.data;
+            current = current.next;
+        }
+
+        return Math.max(first, Math.max(second, third));
+    }
+
 }
