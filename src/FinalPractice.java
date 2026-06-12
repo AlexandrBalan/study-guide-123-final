@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 import org.junit.Assume;
 
 public class FinalPractice {
@@ -125,6 +128,30 @@ The branch nodes are 15  9  4  8  21, and the odd ones are 15  9   21
 The sum of the odd branch nodes is 15+9+21=45
 POSSIBLE VARIATION: Sum of branch nodes with even values
 
+
+                */
+
+public static int oddSum(TreeNode root) {
+    if(root == null) return 0;
+
+    boolean isLeaf = root.left == null && root.right == null;
+
+
+    if(isLeaf) return 0;
+
+    int sum = 0;
+
+    if(root.data % 2 != 0) {
+        sum += root.data;
+    }
+
+
+    return sum + oddSum(root.left) + oddSum(root.right);
+}
+
+
+/*
+
 Given a reference to a head node in a linked list of integers, return a Map<Integer, Integer> containing each value along with the number of times it shows up.
 Example:
 Linked List:
@@ -146,24 +173,27 @@ Explanation
 29 shows up one time
 34 shows up one time
 
-                */
-
-public static int oddSum(TreeNode root) {
-    if(root == null) return 0;
-
-    boolean isLeaf = root.left == null && root.right == null;
 
 
-    if(isLeaf) return 0;
+*/
 
-    int sum = 0;
+public static Map<Integer, Integer> valueCounts(ListNode head) {
+    Map<Integer, Integer> counts = new HashMap<>();
 
-    if(root.data % 2 != 0) {
-        sum += root.data;
+    ListNode current = head;
+
+    while(current != null) {
+        if(counts.containsKey(current.data)) {
+            counts.put(current.data, counts.get(current.data) + 1);
+        }
+        else {
+            counts.put(current.data, 1);
+        }
+
+        current = current.next;
     }
 
-
-    return sum + oddSum(root.left) + oddSum(root.right);
+    return counts;
 }
     
 }
