@@ -29,4 +29,23 @@ public class FinalPracticeTest {
     }
 
     // TODO: Make thorough tests for ALL the questions on the study guide
+    // last three big numbers
+    @Test
+    void testLastThreeLargest() {
+        ListNode list = new ListNode(7, new ListNode(4, new ListNode(26, new ListNode(5))));
+        assertEquals(26, FinalPractice.lastThree(list));
+    }
+
+    @Test
+    void testLastThreeLargest_allSame() {
+        ListNode list = new ListNode(5, new ListNode(5, new ListNode(5, new ListNode(5))));
+        assertEquals(5, FinalPractice.lastThree(list));
+    }
+
+    @Test
+    void testLastThreeLargest_lastBiggest() {
+        ListNode list = new ListNode(5, new ListNode(6, new ListNode(7, new ListNode(99))));
+
+        assertEquals(99, FinalPractice.lastThree(list));
+    }
 }
